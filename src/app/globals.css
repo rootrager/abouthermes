@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+:root {
+  /* Loader root variables from loading.txt */
+  --ink: #000000;
+  --ink-3: rgba(0, 0, 0, 0.4);
+  --tooltip-bg: #F5F3E7;
+  --tooltip-muted: rgba(0, 0, 0, 0.5);
+
+  /* Neo-Brutalist core palette */
+  --color-cream: #F5F3E7;
+  --color-black: #000000;
+  --color-red: #E62429;
+  --color-white: #FFFFFF;
+}
+
+/* Tailwind v4 theme token mappings */
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-3: var(--ink-3);
+  --color-tooltip-bg: var(--tooltip-bg);
+  --color-tooltip-muted: var(--tooltip-muted);
+}
+
+/* 1. Global Viewport & Non-scrolling body lock */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F5F3E7;
+  color: #000000;
+  overflow: hidden;
+  height: 100vh;
+  height: 100dvh;
+  position: fixed;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+/* 2. Loader Utility Classes */
+.bg-ink {
+  background-color: var(--ink);
+}
+
+.text-ink {
+  color: var(--ink);
+}
+
+.text-ink-3 {
+  color: var(--ink-3);
+}
+
+.shadow-overlay {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* GPU Hardware Acceleration Layer */
+.gpu-layer {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* 3. Loader @keyframes */
+@keyframes pixel-on {
+  0%, 100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer-text {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 4. Neo-Brutalist Core Styles */
+.neo-border {
+  border: 4px solid #000000;
+}
+
+.neo-shadow {
+  box-shadow: 6px 6px 0px 0px #000000;
+}
+
+.neo-shadow-sm {
+  box-shadow: 4px 4px 0px 0px #000000;
+}
+
+.neo-shadow-lg {
+  box-shadow: 8px 8px 0px 0px #000000;
+}
+
+.neo-shadow-top {
+  box-shadow: 0px -6px 0px 0px #000000;
+}
+
+.neo-card {
+  background-color: #ffffff;
+  border: 4px solid #000000;
+  box-shadow: 6px 6px 0px 0px #000000;
+}
+
+.neo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: #ffffff;
+  color: #000000;
+  border: 4px solid #000000;
+  box-shadow: 6px 6px 0px 0px #000000;
+  padding: 0.875rem 1.5rem;
+  cursor: pointer;
+  outline: none;
+  touch-action: manipulation;
+  transition: transform 0.08s cubic-bezier(0.2, 0, 0, 1),
+              box-shadow 0.08s cubic-bezier(0.2, 0, 0, 1),
+              background-color 0.12s ease;
+}
+
+.neo-btn:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px 0px #000000;
+}
+
+.neo-btn:active:not(:disabled) {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0px 0px #000000;
+}
+
+.neo-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: 2px 2px 0px 0px #000000;
+  transform: none;
+}
+
+.neo-btn-primary {
+  background-color: #e62429;
+  color: #ffffff;
+  border: 4px solid #000000;
+  box-shadow: 6px 6px 0px 0px #000000;
+}
+
+.neo-btn-primary:hover:not(:disabled) {
+  background-color: #f03338;
+}
+
+/* Manga-Retro Halftone & Screentone Texture Accents */
+.manga-dots {
+  background-image: radial-gradient(#000000 1.5px, transparent 1.5px);
+  background-size: 10px 10px;
+}
+
+.manga-stripes {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 6px,
+    rgba(0, 0, 0, 0.08) 6px,
+    rgba(0, 0, 0, 0.08) 9px
+  );
+}
